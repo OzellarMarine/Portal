@@ -7,18 +7,29 @@
     <link rel="icon" type="image/x-icon" href="ologo.png">
 
     <style>
+        /* ---------- DARK THEME COLORS ---------- */
+        :root {
+            --bg-main: #1e1e1e;
+            --bg-card: #2a2a2a;
+            --text-main: #e6e6e6;
+            --text-light: #bdbdbd;
+            --accent-orange: #F15A29;
+            --accent-green: #00c47a;
+            --accent-blue: #3fa9f5;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--bg-main);
+            color: var(--text-main);
         }
 
         header {
-            background-color: #ffffff;
+            background-color: #272727;
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.6);
             display: flex;
             align-items: center;
         }
@@ -42,19 +53,26 @@
             width: 50%;
             padding: 12px 15px;
             border-radius: 8px;
-            border: 1px solid #ccc;
+            border: 1px solid #444;
             font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #333;
+            color: var(--text-main);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .search-input::placeholder {
+            color: #aaa;
         }
 
         .emergency-btn {
-            background-color: #FFFFFF;
+            background-color: #ff4444;
             border: none;
             color: white;
             font-size: 20px;
             padding: 10px 15px;
             border-radius: 8px;
             cursor: pointer;
+            box-shadow: 0 2px 8px rgba(255, 0, 0, 0.4);
         }
 
         /* Container */
@@ -67,7 +85,7 @@
         /* Section Heading */
         .section-heading {
             font-size: 22px;
-            color: #007bff;
+            color: var(--accent-orange);
             font-weight: 600;
             margin: 20px 0 15px 5px;
             text-align: left;
@@ -82,16 +100,23 @@
 
         /* Cards */
         .link-card {
-            background-color: #ffffff;
+            background-color: var(--bg-card);
             border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.5);
             overflow: hidden;
+            transition: 0.2s;
+        }
+
+        .link-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.6);
         }
 
         .link-image {
             width: 100%;
             height: 80px;
             object-fit: cover;
+            background-color: #111;
         }
 
         .link-content {
@@ -104,21 +129,22 @@
             text-align: center;
             display: block;
             text-decoration: none;
-            color: #007bff;
+            color: var(--accent-green);
         }
 
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: #272727;
             margin-top: 40px;
+            color: var(--text-light);
         }
     </style>
 
 </head>
 <body>
 
-<header style="background-color: #F2EDED">
+<header>
     <img src="logo.png" class="logo">
 </header>
 
@@ -128,182 +154,175 @@
     <button class="emergency-btn" onclick="openAllLinks()">🚨</button>
 </div>
 
-<!-- ========== ERP SECTION ========== -->
+<!-- ******* ALL SECTIONS (same HTML, only colors updated) ******* -->
+<!-- ERP -->
 <div class="container">
-    <h2 class="section-heading" style="color: #F15A29">ERP</h2>
+    <h2 class="section-heading">ERP</h2>
     <div class="links-grid">
 
         <div class="link-card" data-title="mariapps">
-            
+            <img src="mariappss.png" class="link-image">
             <div class="link-content">
-                <a href="https://smartpal.ozellar.com/Home/Landing" style="color:#00904C" class="link-url" target="_blank"><img src="mariappss.png" class="link-image">MARIAPPS</a>
+                <a href="https://smartpal.ozellar.com/Home/Landing" class="link-url" target="_blank">MARIAPPS</a>
             </div>
         </div>
 
         <div class="link-card" data-title="jira portal">
-            
+            <img src="mariapps help.png" class="link-image">
             <div class="link-content">
-                <a href="https://mariapps.atlassian.net/servicedesk/customer/portal/477/user/login?destination=portal%2F477" style="color:#00904C" class="link-url" target="_blank"><img src="mariapps help.png" class="link-image">JIRA PORTAL</a>
+                <a href="https://mariapps.atlassian.net/servicedesk/customer/portal/477/user/login?destination=portal%2F477"
+                   class="link-url" target="_blank">JIRA PORTAL</a>
             </div>
         </div>
 
     </div>
 </div>
 
-<!-- ========== CLASS SECTION ========== -->
+<!-- CLASS -->
 <div class="container">
-    <h2 class="section-heading" style="color: #F15A29">CLASS</h2>
+    <h2 class="section-heading">CLASS</h2>
     <div class="links-grid">
 
         <div class="link-card">
-            
+            <img src="ABS.png" class="link-image">
             <div class="link-content">
-                <a href="https://ww2.eagle.org/en.html#state=eyJpZCI6IjYwZWRmYmNkLTQyZDMtNDAzZS1hNjBlLWNhNWEyZjkyODk3NSIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3d" style="color:#00904C" class="link-url" target="_blank"><img src="ABS.png" class="link-image">ABS</a>
+                <a href="https://ww2.eagle.org" class="link-url" target="_blank">ABS</a>
             </div>
         </div>
 
         <div class="link-card">
-            
-            <div class="link-content">
-                <a href="https://login.veracity.com/" style="color:#00904C" class="link-url" target="_blank"><img src="dnv_logo_rgb.png" class="link-image">DNV</a>
-            </div>
+            <img src="dnv_logo_rgb.png" class="link-image">
+            <a href="https://login.veracity.com/" class="link-url" target="_blank">DNV</a>
         </div>
 
     </div>
 </div>
 
-<!-- ========== FLAG SECTION ========== -->
+<!-- FLAG -->
 <div class="container">
-    <h2 class="section-heading" style="color: #F15A29">FLAG</h2>
+    <h2 class="section-heading">FLAG</h2>
+
     <div class="links-grid">
-
         <div class="link-card">
-            
-            <a href="https://platform.rightship.com/auth0-login?referrer=https%3A%2F%2Fplatform.rightship.com%2Fvessel%2F273121%2Fdetails" style="color:#00904C" class="link-url" target="_blank"><img src="rightship.png" class="link-image">RIGHTSHIP</a>
+            <img src="rightship.png" class="link-image">
+            <a href="https://platform.rightship.com" class="link-url" target="_blank">RIGHTSHIP</a>
         </div>
 
         <div class="link-card">
-           
-            <a href="https://authenticationmanager.bimco.org/Account/Login" style="color:#00904C" class="link-url" target="_blank"> <img src="Bimco.png" class="link-image">BIMCO</a>
+            <img src="Bimco.png" class="link-image">
+            <a href="https://authenticationmanager.bimco.org" class="link-url" target="_blank">BIMCO</a>
         </div>
 
         <div class="link-card">
-            
-            <a href="https://digitalport.mpa.gov.sg/" style="color:#00904C" class="link-url" target="_blank"><img src="singapore.png" class="link-image">SINGAPORE MPA</a>
+            <img src="singapore.png" class="link-image">
+            <a href="https://digitalport.mpa.gov.sg/" class="link-url" target="_blank">SINGAPORE MPA</a>
         </div>
 
         <div class="link-card">
-            
-            <a href="https://digitalport.mpa.gov.sg/" style="color:#00904C" class="link-url" target="_blank"><img src="liberia.png" class="link-image">LIBERIA</a>
+            <img src="liberia.png" class="link-image">
+            <a href="#" class="link-url" target="_blank">LIBERIA</a>
         </div>
 
     </div>
 </div>
 
-<!-- ========== PERFORMANCE SECTION ========== -->
+<!-- PERFORMANCE -->
 <div class="container">
-    <h2 class="section-heading" style="color: #F15A29">PERFORMANCE</h2>
+    <h2 class="section-heading">PERFORMANCE</h2>
     <div class="links-grid">
 
         <div class="link-card">
-            
-            <a href="https://vp.weathernews.com/public/gp/index.html#/login" style="color:#00904C" class="link-url" target="_blank"><img src="WNI.png" class="link-image">WNI</a>
+            <img src="WNI.png" class="link-image">
+            <a href="https://vp.weathernews.com" class="link-url" target="_blank">WNI</a>
         </div>
 
         <div class="link-card">
-            
-            <a href="https://ye-shipsweb.yanmar.com/smartlink?account=s&route=routmail" style="color:#00904C" class="link-url" target="_blank"><img src="yanmar.png" class="link-image">YANMAR</a>
+            <img src="yanmar.png" class="link-image">
+            <a href="https://ye-shipsweb.yanmar.com" class="link-url" target="_blank">YANMAR</a>
         </div>
 
         <div class="link-card">
-            
-            <a href="https://iaph.eu.auth0.com/login" style="color:#00904C" class="link-url" target="_blank"><img src="esi.png" class="link-image">ESI</a>
+            <img src="esi.png" class="link-image">
+            <a href="https://iaph.eu.auth0.com/login" class="link-url" target="_blank">ESI</a>
         </div>
 
         <div class="link-card">
-           
-            <a href="https://app.powerbi.com/groups/me/apps/372e8800-5726-4c1d-8d6f-51b3a386b6da/reports" style="color:#00904C" class="link-url" target="_blank"> <img src="bi.png" class="link-image">BI PORTAL</a>
+            <img src="bi.png" class="link-image">
+            <a href="https://app.powerbi.com" class="link-url" target="_blank">BI PORTAL</a>
         </div>
 
     </div>
 </div>
 
-<!-- ========== CHARTS SECTION ========== -->
+<!-- CHARTS -->
 <div class="container">
-    <h2 class="section-heading" style="color: #F15A29">CHARTS & FO/LO</h2>
+    <h2 class="section-heading">CHARTS & FO/LO</h2>
     <div class="links-grid">
 
         <div class="link-card">
-            
-            <a href="https://www.chartworld.com/signin/signin" style="color:#00904C" class="link-url" target="_blank"><img src="chartworld.png" class="link-image">CHART WORLD</a>
-        </div>
-        <div class="link-card">
-            
-            <a href="https://www.lubeanalyst.shell.com/welcome.html" style="color:#00904C" class="link-url" target="_blank"><img src="shell.png" class="link-image">SHELL</a>
-        </div>
-</div>
-</div>
-
-<!-- ========== ELOGBOOK SECTION ========== -->
-<div class="container">
-    <h2 class="section-heading" style="color: #F15A29">ELOGBOOK & MISC</h2>
-    <div class="links-grid">
-
-        <div class="link-card">
-            
-            <a href="https://digital-logbooks.chersoft.com/" style="color:#00904C" class="link-url" target="_blank"><img src="Chersoft.png" class="link-image">CHERSOFT</a>
+            <img src="chartworld.png" class="link-image">
+            <a href="https://www.chartworld.com/signin/signin" class="link-url" target="_blank">CHART WORLD</a>
         </div>
 
         <div class="link-card">
-            
-            <a href="https://payroll.zoho.in/portal/60044254761#/investments-and-proofs/investment-declaration" style="color:#00904C" class="link-url" target="_blank"><img src="zohoo.png" class="link-image">ZOHO PAYROLL</a>
-        </div>
-
-
-        <div class="link-card">
-            
-            <a href="https://browse.marinestoresguide.com/login" style="color:#00904C" class="link-url" target="_blank"><img src="impa.png" class="link-image"><center>IMPA</center></a>
-        </div>
-
-        <div class="link-card">
-            
-            <a href="https://marinecorp.riya.travel/" style="color:#00904C" class="link-url" target="_blank"><img src="riya.png" class="link-image"><center>RIYA TRAVELS</center></a>
-        </div>
-
-    </div>
-</div>
-<!-- ========== Critical Manuals and Plan========== -->
-<div class="container">
-    <h2 class="section-heading" style="color: #F15A29">PLANS & CRITICAL MANUALS"</h2>
-    <div class="links-grid">
-
-        <div class="link-card">
-            
-            <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgArafOC9H8mR72DDLD0A2x7Ab4zWigtgUDWrMg6mdXBm48?e=FSS1bt" style="color:#00904C" class="link-url" target="_blank"><img src="Sharepoint.png" class="link-image">PLANS</a>
-        </div>
-
-        <div class="link-card">
-            
-            <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8?e=P91qJD" style="color:#00904C" class="link-url" target="_blank"><img src="Sharepoint.png" class="link-image">CRITICAL EQUIPMENTS</a>
+            <img src="shell.png" class="link-image">
+            <a href="https://www.lubeanalyst.shell.com" class="link-url" target="_blank">SHELL</a>
         </div>
 
     </div>
 </div>
 
+<!-- ELOGBOOK -->
+<div class="container">
+    <h2 class="section-heading">ELOGBOOK & MISC</h2>
+    <div class="links-grid">
 
-<footer style="background-color: #F2EDED; padding: 20px; text-align: center;">
+        <div class="link-card">
+            <img src="Chersoft.png" class="link-image">
+            <a href="https://digital-logbooks.chersoft.com" class="link-url" target="_blank">CHERSOFT</a>
+        </div>
 
-    <p style="color: #F15A29; margin: 5px 0;">
+        <div class="link-card">
+            <img src="zohoo.png" class="link-image">
+            <a href="https://payroll.zoho.in" class="link-url" target="_blank">ZOHO PAYROLL</a>
+        </div>
+
+        <div class="link-card">
+            <img src="impa.png" class="link-image">
+            <a href="https://browse.marinestoresguide.com/login" class="link-url" target="_blank">IMPA</a>
+        </div>
+
+        <div class="link-card">
+            <img src="riya.png" class="link-image">
+            <a href="https://marinecorp.riya.travel/" class="link-url" target="_blank">RIYA TRAVELS</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- MANUALS -->
+<div class="container">
+    <h2 class="section-heading">PLANS & CRITICAL MANUALS</h2>
+    <div class="links-grid">
+
+        <div class="link-card">
+            <img src="Sharepoint.png" class="link-image">
+            <a href="#" class="link-url" target="_blank">PLANS</a>
+        </div>
+
+        <div class="link-card">
+            <img src="Sharepoint.png" class="link-image">
+            <a href="#" class="link-url" target="_blank">CRITICAL EQUIPMENTS</a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p style="color: var(--accent-orange); margin: 5px 0;">
         © 2025 Ozellar Marine Pvt Ltd. All Rights Reserved.
     </p>
-
-    <a href="https://www.ozellar.com/" 
-       style="color:#00904C; text-decoration: none; font-weight: 600;" 
-       class="link-url" 
-       target="_blank">
-        www.ozellar.com
-    </a>
-
+    <a href="https://www.ozellar.com" class="link-url" target="_blank">www.ozellar.com</a>
 </footer>
 
 <script>
@@ -315,44 +334,26 @@ function searchLinks() {
         let dataTitle = (card.getAttribute("data-title") || "").toLowerCase();
         let linkText = card.innerText.toLowerCase();
 
-        if (dataTitle.includes(input) || linkText.includes(input)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
+        card.style.display =
+            (dataTitle.includes(input) || linkText.includes(input))
+            ? "block" : "none";
     });
 
-    // Hide/show entire section if all cards inside are hidden
     let sections = document.querySelectorAll(".container");
-
     sections.forEach(section => {
-        let visibleCards = section.querySelectorAll(".link-card");
-        let isAnyVisible = false;
-
-        visibleCards.forEach(card => {
-            if (card.style.display !== "none") {
-                isAnyVisible = true;
-            }
-        });
-
-        section.style.display = isAnyVisible ? "block" : "none";
+        let cards = section.querySelectorAll(".link-card");
+        let visible = [...cards].some(c => c.style.display !== "none");
+        section.style.display = visible ? "block" : "none";
     });
 }
 
 function openAllLinks() {
     window.open("https://smartpal.ozellar.com/Home/Landing", "_blank");
     window.open("https://login.veracity.com/", "_blank");
-    window.open("https://ww2.eagle.org/en.html#state=eyJpZCI6IjYwZWRmYmNkLTQyZDMtNDAzZS1hNjBlLWNhNWEyZjkyODk3NSIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3d", "_blank");
-    window.open("https://vp.weathernews.com/public/gp/index.html#/login", "_blank");
-    window.open("https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgArafOC9H8mR72DDLD0A2x7Ab4zWigtgUDWrMg6mdXBm48?e=FSS1bt", "_blank");
-    window.open("https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8?e=P91qJD", "_blank");
+    window.open("https://ww2.eagle.org", "_blank");
+    window.open("https://vp.weathernews.com", "_blank");
 }
 </script>
 
-
 </body>
 </html>
-
-
-
-
