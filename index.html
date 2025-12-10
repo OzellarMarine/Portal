@@ -48,15 +48,15 @@
 }
 
 
-        .emergency-btn {
-            background-color: #FFFFFF;
-            border: none;
-            color: white;
-            font-size: 20px;
-            padding: 10px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+       .emergency-btn {
+    background-color: #FFFFFF;
+    border: none;
+    font-size: 20px;
+    padding: 10px 15px;
+    border-radius: 8px; /* MATCH SEARCH BAR */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* SAME SHADOW */
+}
 
         /* Container */
         .container {
@@ -127,6 +127,30 @@
 <div class="search-row">
     <input type="text" id="searchBar" class="search-input" placeholder="Search..." onkeyup="searchLinks()">
     <button class="emergency-btn" onclick="openAllLinks()">🚨</button>
+</div>
+	
+<!-- ========== Critical Manuals and Plan========== -->
+<div class="container">
+    <h2 class="section-heading" style="color: #F15A29">PLANS & CRITICAL MANUALS</h2>
+    <div class="links-grid">
+
+        <div class="link-card">
+            
+            <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgArafOC9H8mR72DDLD0A2x7Ab4zWigtgUDWrMg6mdXBm48?e=FSS1bt" style="color:#00904C" class="link-url" target="_blank"><img src="contingency.jpg" class="link-image">PLANS</a>
+        </div>
+
+        <div class="link-card">
+           
+            <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8?e=P91qJD" style="color:#00904C" class="link-url" target="_blank">
+		<img  src="criticaleqp.jpg" href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8?e=P91qJD" class="link-image">CRITICAL EQUIPMENTS</a>
+        </div>
+		<div class="link-card">
+           
+            <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgDSsyVxFMokSKpIEv-nKLtsAeweNpFvkH5Fm7ubWAr21QA?e=IeDE9a" style="color:#00904C" class="link-url" target="_blank">
+		<img  src="ship particulars.png" href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgDSsyVxFMokSKpIEv-nKLtsAeweNpFvkH5Fm7ubWAr21QA?e=IeDE9a" class="link-image">SHIP PARTICULARS</a>
+        </div>
+
+    </div>
 </div>
 
 <!-- ========== ERP SECTION ========== -->
@@ -276,29 +300,7 @@
 
     </div>
 </div>
-<!-- ========== Critical Manuals and Plan========== -->
-<div class="container">
-    <h2 class="section-heading" style="color: #F15A29">PLANS & CRITICAL MANUALS</h2>
-    <div class="links-grid">
 
-        <div class="link-card">
-            
-            <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgArafOC9H8mR72DDLD0A2x7Ab4zWigtgUDWrMg6mdXBm48?e=FSS1bt" style="color:#00904C" class="link-url" target="_blank"><img src="contingency.jpg" class="link-image">PLANS</a>
-        </div>
-
-        <div class="link-card">
-           
-            <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8?e=P91qJD" style="color:#00904C" class="link-url" target="_blank">
-		<img  src="criticaleqp.jpg" href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8?e=P91qJD" class="link-image">CRITICAL EQUIPMENTS</a>
-        </div>
-		<div class="link-card">
-           
-            <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgDSsyVxFMokSKpIEv-nKLtsAeweNpFvkH5Fm7ubWAr21QA?e=IeDE9a" style="color:#00904C" class="link-url" target="_blank">
-		<img  src="ship particulars.png" href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgDSsyVxFMokSKpIEv-nKLtsAeweNpFvkH5Fm7ubWAr21QA?e=IeDE9a" class="link-image">SHIP PARTICULARS</a>
-        </div>
-
-    </div>
-</div>
 
 
 <footer style="background-color: #3F3D3D; padding: 20px; text-align: center;">
@@ -362,6 +364,7 @@ function openAllLinks() {
 
 </body>
 </html>
+
 
 
 
