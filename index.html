@@ -11,14 +11,33 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+
+            /* FULL-PAGE BACKGROUND IMAGE */
+            background-image: url('goodship.jpg'); /* Place image in same folder */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+
+            color: #ffffff; /* Text becomes readable on dark overlay */
+        }
+
+        /* TRANSPARENT DARK OVERLAY */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.40); /* Adjust transparency here */
+            z-index: -1;
         }
 
         header {
-            background-color: #ffffff;
+            background-color: rgba(0,0,0,0.6);
             padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
         }
@@ -39,24 +58,23 @@
         }
 
         .search-input {
-    width: 30%;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+            width: 30%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
 
-
-       .emergency-btn {
-    background-color: #FFFFFF;
-    border: none;
-    font-size: 20px;
-    padding: 10px 15px;
-    border-radius: 8px; /* MATCH SEARCH BAR */
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* SAME SHADOW */
-}
+        .emergency-btn {
+            background-color: #FFFFFF;
+            border: none;
+            font-size: 20px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
 
         /* Container */
         .container {
@@ -68,7 +86,7 @@
         /* Section Heading */
         .section-heading {
             font-size: 22px;
-            color: #007bff;
+            color: #FFFFFF;
             font-weight: 600;
             margin: 20px 0 15px 5px;
             text-align: left;
@@ -83,9 +101,9 @@
 
         /* Cards */
         .link-card {
-            background-color: #ffffff;
+            background-color: rgba(255,255,255,0.85);
             border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.5);
             overflow: hidden;
         }
 
@@ -111,7 +129,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: rgba(0,0,0,0.7);
             margin-top: 40px;
         }
     </style>
@@ -119,7 +137,7 @@
 </head>
 <body>
 
-<header style="background-color:#3F3D3D">
+<header>
     <img src="logo.png" class="logo">
 </header>
 
@@ -128,6 +146,7 @@
     <input type="text" id="searchBar" class="search-input" placeholder="Search..." onkeyup="searchLinks()">
     <button class="emergency-btn" onclick="openAllLinks()">🚨</button>
 </div>
+
 	
 <!-- ========== Critical Manuals and Plan========== -->
 <div class="container">
@@ -364,6 +383,7 @@ function openAllLinks() {
 
 </body>
 </html>
+
 
 
 
