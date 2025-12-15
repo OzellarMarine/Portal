@@ -320,11 +320,24 @@
 <script>
 function searchLinks() {
     let input = document.getElementById("searchBar").value.toLowerCase();
-    let cards = document.querySelectorAll(".link-card");
+    let containers = document.querySelectorAll(".container");
 
-    cards.forEach(card => {
-        let text = card.innerText.toLowerCase();
-        card.style.display = text.includes(input) ? "block" : "none";
+    containers.forEach(container => {
+        let cards = container.querySelectorAll(".link-card");
+        let matchFound = false;
+
+        cards.forEach(card => {
+            let text = card.innerText.toLowerCase();
+            if (text.includes(input)) {
+                card.style.display = "block";
+                matchFound = true;
+            } else {
+                card.style.display = "none";
+            }
+        });
+
+        // Hide entire section if no cards match
+        container.style.display = matchFound ? "block" : "none";
     });
 }
 
@@ -335,8 +348,10 @@ function openAllLinks() {
 }
 </script>
 
+
 </body>
 </html>
+
 
 
 
