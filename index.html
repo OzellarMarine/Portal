@@ -18,7 +18,6 @@
             color: #ffffff;
         }
 
-        /* Transparent dark overlay */
         body::before {
             content: "";
             position: fixed;
@@ -36,7 +35,7 @@
             display: flex;
             align-items: center;
         }
-       
+
         .logo {
             width: 90px;
             height: 45px;
@@ -116,14 +115,12 @@
             font-size: 12px;
         }
     </style>
-
 </head>
 <body>
 
 <header>
     <img src="logo.png" class="logo">
 </header>
-
 <!-- Search -->
 <div class="search-row">
     <input type="text" id="searchBar" class="search-input" placeholder="Search..." onkeyup="searchLinks()">
@@ -377,6 +374,7 @@ function openCredentials() {
 
 </body>
 </html>
+
 
 
 
