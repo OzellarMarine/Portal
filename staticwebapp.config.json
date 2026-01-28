@@ -9,5 +9,16 @@
     "401": {
       "redirect": "/.auth/login/aad"
     }
+  },
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/fb77eaff-d671-41f7-87a7-f32a56e2f12b/v2.0",
+          "clientIdSettingName": "AZURE_CLIENT_ID",
+          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
+        }
+      }
+    }
   }
 }
