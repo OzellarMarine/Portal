@@ -125,6 +125,7 @@
 <div class="search-row">
     <input type="text" id="searchBar" class="search-input" placeholder="Search..." onkeyup="searchLinks()">
     <button class="emergency-btn" onclick="openAllLinks()">🚨</button>
+	<button class="emergency-btn" onclick="openLock()">🔒</button>
 </div>
 
 <!-- ========== ERP + MANUALS ========== -->
@@ -385,6 +386,16 @@ function searchLinks() {
         // Hide entire section if no cards match
         container.style.display = matchFound ? "block" : "none";
     });
+}
+function openLock() {
+       let password = prompt("Enter Password:");
+
+    if (password === "Ozellar@123") {
+        // 👉 Put your link here (same like emergency)
+        window.open("https://ozellarmarine.sharepoint.com/:x:/s/OZM/IQCXnrp3hl13RoNIQtZL1XQAAc_dg_FyNKBEmZPMZGjjEHk?e=VW2cU9", "_blank");
+    } else {
+        alert("Invalid Password!");
+    }
 }
 
 function openAllLinks() {
