@@ -8,14 +8,15 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   :root{
-    --green:#00904C;
+    --green:#00C060;
+    --green-dark:#00904C;
     --orange:#F15A29;
-    --border:rgba(255,255,255,0.10);
-    --border-hover:rgba(0,144,76,0.5);
-    --text:#f0f4f2;
-    --muted:rgba(255,255,255,0.45);
-    --card-bg:rgba(255,255,255,0.07);
-    --surface:rgba(255,255,255,0.06);
+    --cyan:#00D4FF;
+    --text:#ffffff;
+    --muted:rgba(255,255,255,0.6);
+    --card-bg:rgba(255,255,255,0.92);
+    --card-hover:#ffffff;
+    --border:rgba(255,255,255,0.18);
   }
   body{
     font-family:'Segoe UI',system-ui,sans-serif;
@@ -27,144 +28,128 @@
     background-position:center;
     background-attachment:fixed;
   }
-  /* dark overlay over background image */
   body::before{
     content:"";
-    position:fixed;
-    inset:0;
-    background:rgba(5,12,8,0.72);
-    z-index:0;
-    pointer-events:none;
-  }
-  /* subtle green glow on top of overlay */
-  body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-      radial-gradient(ellipse 55% 45% at 15% 25%, rgba(0,144,76,0.10) 0%, transparent 70%),
-      radial-gradient(ellipse 45% 55% at 85% 75%, rgba(241,90,41,0.07) 0%, transparent 70%);
-    z-index:0;
-    pointer-events:none;
+    position:fixed;inset:0;
+    background:rgba(0,10,20,0.48);
+    z-index:0;pointer-events:none;
   }
 
   /* ─── HEADER ─── */
   header{
     position:sticky;top:0;z-index:100;
-    background:rgba(5,12,8,0.80);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    border-bottom:1px solid var(--border);
-    padding:0 24px;height:62px;
+    background:rgba(0,8,18,0.75);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(0,212,255,0.25);
+    padding:0 28px;height:64px;
     display:flex;align-items:center;justify-content:space-between;gap:16px;
-  }
-  .logo-mark{display:flex;align-items:center;gap:10px}
-  .logo-icon{
-    width:34px;height:34px;background:var(--green);border-radius:7px;
-    display:flex;align-items:center;justify-content:center;
-    font-weight:700;font-size:13px;color:#fff;letter-spacing:.5px;
-    flex-shrink:0;
+    box-shadow:0 2px 30px rgba(0,0,0,0.5);
   }
   .logo-img{width:90px;height:45px;object-fit:contain}
-  .logo-text{font-size:14px;font-weight:600;letter-spacing:2.5px;color:var(--text)}
-  .logo-text span{color:var(--green)}
-  .header-right{display:flex;align-items:center;gap:8px}
+  .header-right{display:flex;align-items:center;gap:10px}
   .search-wrap{position:relative}
-  .search-icon{
-    position:absolute;left:10px;top:50%;transform:translateY(-50%);
-    opacity:.4;pointer-events:none;width:14px;height:14px;
-  }
+  .search-icon{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.5;pointer-events:none;width:14px;height:14px}
   #searchBar{
-    width:230px;padding:7px 12px 7px 32px;
-    background:var(--surface);border:1px solid var(--border);
-    border-radius:8px;color:var(--text);font-size:13px;transition:.2s;
+    width:240px;padding:8px 14px 8px 34px;
+    background:rgba(255,255,255,0.10);
+    border:1px solid rgba(255,255,255,0.22);
+    border-radius:22px;color:#fff;font-size:13px;transition:.2s;
   }
-  #searchBar::placeholder{color:var(--muted)}
-  #searchBar:focus{outline:none;border-color:var(--green);background:rgba(0,144,76,0.10)}
+  #searchBar::placeholder{color:rgba(255,255,255,0.45)}
+  #searchBar:focus{outline:none;border-color:var(--cyan);background:rgba(0,212,255,0.10);box-shadow:0 0 0 3px rgba(0,212,255,0.12)}
   .icon-btn{
-    width:36px;height:36px;border-radius:8px;
-    border:1px solid var(--border);background:var(--surface);
+    width:38px;height:38px;border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.25);
+    background:rgba(255,255,255,0.10);
     cursor:pointer;display:flex;align-items:center;justify-content:center;
-    font-size:16px;color:var(--text);transition:.15s;
-    text-decoration:none;flex-shrink:0;
+    font-size:17px;transition:.18s;
   }
-  .icon-btn:hover{border-color:var(--orange);background:rgba(241,90,41,0.14)}
-  .icon-btn.lock:hover{border-color:var(--green);background:rgba(0,144,76,0.14)}
+  .icon-btn:hover{border-color:var(--orange);background:rgba(241,90,41,0.22);transform:scale(1.08)}
+  .icon-btn.lock:hover{border-color:var(--cyan);background:rgba(0,212,255,0.18);transform:scale(1.08)}
 
   /* ─── MAIN ─── */
-  main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:28px 20px 60px}
+  main{position:relative;z-index:1;max-width:100%;margin:0;padding:30px 32px 70px}
 
   /* ─── SECTION ─── */
-  .section{margin-bottom:36px}
-  .section-header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+  .section{margin-bottom:38px}
+  .section-header{display:flex;align-items:center;gap:14px;margin-bottom:18px}
   .section-pill{
-    font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
-    padding:4px 12px;border-radius:20px;border:1px solid;white-space:nowrap;
+    font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    padding:5px 14px;border-radius:22px;border:1.5px solid;white-space:nowrap;
+    text-shadow:none;
   }
-  .pill-green {border-color:rgba(0,144,76,.45);color:#2ecc8a;background:rgba(0,144,76,.10)}
-  .pill-orange{border-color:rgba(241,90,41,.45);color:#f5895d;background:rgba(241,90,41,.10)}
-  .pill-blue  {border-color:rgba(60,140,255,.45);color:#7ab8ff;background:rgba(60,140,255,.10)}
-  .pill-purple{border-color:rgba(160,100,255,.45);color:#c4a0ff;background:rgba(160,100,255,.10)}
-  .pill-teal  {border-color:rgba(20,190,170,.45);color:#4dddd0;background:rgba(20,190,170,.10)}
-  .section-line{flex:1;height:1px;background:var(--border)}
+  .pill-green {border-color:#00C060;color:#00ff88;background:rgba(0,192,96,0.18);box-shadow:0 0 12px rgba(0,192,96,0.3)}
+  .pill-orange{border-color:#F15A29;color:#ff8c5a;background:rgba(241,90,41,0.18);box-shadow:0 0 12px rgba(241,90,41,0.3)}
+  .pill-blue  {border-color:#00D4FF;color:#66e0ff;background:rgba(0,212,255,0.18);box-shadow:0 0 12px rgba(0,212,255,0.3)}
+  .pill-purple{border-color:#a855f7;color:#d4a0ff;background:rgba(168,85,247,0.18);box-shadow:0 0 12px rgba(168,85,247,0.3)}
+  .pill-teal  {border-color:#14b8a6;color:#5eead4;background:rgba(20,184,166,0.18);box-shadow:0 0 12px rgba(20,184,166,0.3)}
+  .section-line{flex:1;height:1px;background:linear-gradient(to right,rgba(255,255,255,0.15),transparent)}
 
   /* ─── GRID ─── */
-  .links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .links-grid{display:flex;flex-wrap:nowrap;justify-content:center;gap:12px;overflow-x:auto;padding-bottom:4px}
+  .links-grid::-webkit-scrollbar{height:4px}
+  .links-grid::-webkit-scrollbar-track{background:transparent}
+  .links-grid::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.2);border-radius:4px}
+  .link-card{flex:0 0 160px;min-width:140px}
 
   /* ─── CARD ─── */
   .link-card{
     background:var(--card-bg);
-    border:1px solid var(--border);
-    border-radius:12px;overflow:hidden;
-    transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;
+    border:1.5px solid rgba(255,255,255,0.6);
+    border-radius:14px;overflow:hidden;
+    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+    box-shadow:0 4px 16px rgba(0,0,0,0.25);
   }
   .link-card:hover{
-    transform:translateY(-4px);
-    border-color:var(--border-hover);
-    background:rgba(0,144,76,0.10);
-    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:0 16px 40px rgba(0,0,0,0.4),0 0 0 2px var(--green);
+    border-color:var(--green);
+    background:var(--card-hover);
   }
   .link-card a{display:block;text-decoration:none}
-  .card-img-wrap{width:100%;height:64px;overflow:hidden;background:rgba(255,255,255,0.04)}
-  .link-image{width:100%;height:64px;object-fit:cover;opacity:.82;display:block;transition:.2s}
-  .link-card:hover .link-image{opacity:1}
-  .card-label{
-    font-size:10.5px;font-weight:600;letter-spacing:.7px;text-align:center;
-    padding:9px 6px;color:rgba(255,255,255,0.80);text-transform:uppercase;
-    border-top:1px solid var(--border);display:block;
+  .card-img-wrap{
+    width:100%;height:70px;overflow:hidden;
+    background:#fff;
+    display:flex;align-items:center;justify-content:center;
   }
+  .link-image{max-width:85%;max-height:58px;object-fit:contain;display:block;transition:.2s}
+  .link-card:hover .link-image{transform:scale(1.06)}
+  .card-label{
+    font-size:10px;font-weight:700;letter-spacing:.9px;text-align:center;
+    padding:8px 6px;color:#111;text-transform:uppercase;
+    border-top:1px solid rgba(0,0,0,0.08);display:block;
+    background:#f8f9fa;
+  }
+  .link-card:hover .card-label{background:#e8faf2;color:var(--green-dark)}
 
   /* ─── FOOTER ─── */
   footer{
     position:relative;z-index:1;text-align:center;padding:18px 20px;
-    border-top:1px solid var(--border);
-    background:rgba(5,12,8,0.65);
+    border-top:1px solid rgba(255,255,255,0.12);
+    background:rgba(0,8,18,0.70);
     backdrop-filter:blur(10px);
-    font-size:11.5px;color:var(--muted);
+    font-size:12px;color:var(--muted);
   }
   footer a{color:var(--green);text-decoration:none;font-weight:600}
-  footer a:hover{text-decoration:underline}
-  footer .copy{color:var(--orange)}
+  footer a:hover{color:#00ff88}
+  .copy{color:var(--orange)}
 
-  /* ─── RESPONSIVE ─── */
   @media(max-width:620px){
     #searchBar{width:150px}
-    .logo-text{display:none}
     .links-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
     header{padding:0 14px}
-    main{padding:20px 12px 50px}
+    main{padding:18px 14px 50px}
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-mark">
-    <img src="logo.png" class="logo-img" alt="Ozellar Marine">
-  </div>
+  <img src="logo.png" class="logo-img" alt="Ozellar Marine">
   <div class="header-right">
     <div class="search-wrap">
-      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="text" id="searchBar" placeholder="Search portals..." oninput="searchLinks()">
     </div>
     <button class="icon-btn" onclick="openAllLinks()" title="Emergency: open all critical links">🚨</button>
@@ -174,251 +159,86 @@
 
 <main>
 
-  <!-- ── ERP, PLANS & CRITICAL MANUALS ── -->
+  <!-- ERP -->
   <div class="section" data-section>
     <div class="section-header">
       <div class="section-pill pill-green">ERP, Plans &amp; Critical Manuals</div>
       <div class="section-line"></div>
     </div>
     <div class="links-grid">
-      <div class="link-card">
-        <a href="https://smartpal.ozellar.com/Home/Landing" target="_blank">
-          <div class="card-img-wrap"><img src="mariappss.png" class="link-image" alt="Mariapps"></div>
-          <span class="card-label">Mariapps</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://mariapps.atlassian.net/servicedesk/customer/portal/477/user/login" target="_blank">
-          <div class="card-img-wrap"><img src="mariapps help.png" class="link-image" alt="Jira Portal"></div>
-          <span class="card-label">Jira Portal</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCRRICa1bxfSa9M46R4sDPdAbyabCDikFGKHIX2czTyruY?e=jk9zYn" target="_blank">
-          <div class="card-img-wrap"><img src="mariappss.png" class="link-image" alt="User Manuals"></div>
-          <span class="card-label">User Manuals</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgArafOC9H8mR72DDLD0A2x7Ab4zWigtgUDWrMg6mdXBm48" target="_blank">
-          <div class="card-img-wrap"><img src="contingency.jpg" class="link-image" alt="Plans"></div>
-          <span class="card-label">Plans</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8" target="_blank">
-          <div class="card-img-wrap"><img src="criticaleqp.jpg" class="link-image" alt="Critical Equipment"></div>
-          <span class="card-label">Critical Equipment</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgDSsyVxFMokSKpIEv-nKLtsAeweNpFvkH5Fm7ubWAr21QA" target="_blank">
-          <div class="card-img-wrap"><img src="ship particulars.png" class="link-image" alt="Ship Particulars"></div>
-          <span class="card-label">Ship Particulars</span>
-        </a>
-      </div>
+      <div class="link-card"><a href="https://smartpal.ozellar.com/Home/Landing" target="_blank"><div class="card-img-wrap"><img src="mariappss.png" class="link-image" alt="Mariapps"></div><span class="card-label">Mariapps</span></a></div>
+      <div class="link-card"><a href="https://mariapps.atlassian.net/servicedesk/customer/portal/477/user/login" target="_blank"><div class="card-img-wrap"><img src="mariapps help.png" class="link-image" alt="Jira Portal"></div><span class="card-label">Jira Portal</span></a></div>
+      <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCRRICa1bxfSa9M46R4sDPdAbyabCDikFGKHIX2czTyruY?e=jk9zYn" target="_blank"><div class="card-img-wrap"><img src="mariappss.png" class="link-image" alt="User Manuals"></div><span class="card-label">User Manuals</span></a></div>
+      <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgArafOC9H8mR72DDLD0A2x7Ab4zWigtgUDWrMg6mdXBm48" target="_blank"><div class="card-img-wrap"><img src="contingency.jpg" class="link-image" alt="Plans"></div><span class="card-label">Plans</span></a></div>
+      <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8" target="_blank"><div class="card-img-wrap"><img src="criticaleqp.jpg" class="link-image" alt="Critical Equipment"></div><span class="card-label">Critical Equipment</span></a></div>
+      <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgDSsyVxFMokSKpIEv-nKLtsAeweNpFvkH5Fm7ubWAr21QA" target="_blank"><div class="card-img-wrap"><img src="ship particulars.png" class="link-image" alt="Ship Particulars"></div><span class="card-label">Ship Particulars</span></a></div>
     </div>
   </div>
 
-  <!-- ── CLASS & FLAG ── -->
+  <!-- CLASS & FLAG -->
   <div class="section" data-section>
     <div class="section-header">
       <div class="section-pill pill-blue">Class &amp; Flag</div>
       <div class="section-line"></div>
     </div>
     <div class="links-grid">
-      <div class="link-card">
-        <a href="https://ww2.eagle.org/en.html" target="_blank">
-          <div class="card-img-wrap"><img src="ABS.png" class="link-image" alt="ABS"></div>
-          <span class="card-label">ABS</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://maritime.dnv.com/Fleet/vessels" target="_blank">
-          <div class="card-img-wrap"><img src="dnv_logo_rgb.png" class="link-image" alt="DNV"></div>
-          <span class="card-label">DNV</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://www.irclass.org/" target="_blank">
-          <div class="card-img-wrap"><img src="IRCLASS.png" class="link-image" alt="IR Class"></div>
-          <span class="card-label">IR Class</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://authenticationmanager.bimco.org/Account/Login" target="_blank">
-          <div class="card-img-wrap"><img src="Bimco.png" class="link-image" alt="BIMCO"></div>
-          <span class="card-label">BIMCO</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://digitalport.mpa.gov.sg/" target="_blank">
-          <div class="card-img-wrap"><img src="singapore.png" class="link-image" alt="Singapore MPA"></div>
-          <span class="card-label">Singapore MPA</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://waypoint.liscr.com/Account/Login" target="_blank">
-          <div class="card-img-wrap"><img src="liberia.png" class="link-image" alt="Liberia"></div>
-          <span class="card-label">Liberia</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://dgshipping.gov.in/Content/DGSOrders.aspx" target="_blank">
-          <div class="card-img-wrap"><img src="DG.png" class="link-image" alt="DG Shipping"></div>
-          <span class="card-label">DG Shipping</span>
-        </a>
-      </div>
+      <div class="link-card"><a href="https://ww2.eagle.org/en.html" target="_blank"><div class="card-img-wrap"><img src="ABS.png" class="link-image" alt="ABS"></div><span class="card-label">ABS</span></a></div>
+      <div class="link-card"><a href="https://maritime.dnv.com/Fleet/vessels" target="_blank"><div class="card-img-wrap"><img src="dnv_logo_rgb.png" class="link-image" alt="DNV"></div><span class="card-label">DNV</span></a></div>
+      <div class="link-card"><a href="https://www.irclass.org/" target="_blank"><div class="card-img-wrap"><img src="IRCLASS.png" class="link-image" alt="IR Class"></div><span class="card-label">IR Class</span></a></div>
+      <div class="link-card"><a href="https://authenticationmanager.bimco.org/Account/Login" target="_blank"><div class="card-img-wrap"><img src="Bimco.png" class="link-image" alt="BIMCO"></div><span class="card-label">BIMCO</span></a></div>
+      <div class="link-card"><a href="https://digitalport.mpa.gov.sg/" target="_blank"><div class="card-img-wrap"><img src="singapore.png" class="link-image" alt="Singapore MPA"></div><span class="card-label">Singapore MPA</span></a></div>
+      <div class="link-card"><a href="https://waypoint.liscr.com/Account/Login" target="_blank"><div class="card-img-wrap"><img src="liberia.png" class="link-image" alt="Liberia"></div><span class="card-label">Liberia</span></a></div>
+      <div class="link-card"><a href="https://dgshipping.gov.in/Content/DGSOrders.aspx" target="_blank"><div class="card-img-wrap"><img src="DG.png" class="link-image" alt="DG Shipping"></div><span class="card-label">DG Shipping</span></a></div>
     </div>
   </div>
 
-  <!-- ── PERFORMANCE ── -->
+  <!-- PERFORMANCE -->
   <div class="section" data-section>
     <div class="section-header">
       <div class="section-pill pill-orange">Performance</div>
       <div class="section-line"></div>
     </div>
     <div class="links-grid">
-      <div class="link-card">
-        <a href="https://vp.weathernews.com/public/gp/index.html#/login" target="_blank">
-          <div class="card-img-wrap"><img src="WNI.png" class="link-image" alt="WNI"></div>
-          <span class="card-label">WNI</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://otis.stratumfive.com/otis/login.html" target="_blank">
-          <div class="card-img-wrap"><img src="Stratumfive.png" class="link-image" alt="Stratumfive"></div>
-          <span class="card-label">Stratumfive</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://ye-shipsweb.yanmar.com/smartlink" target="_blank">
-          <div class="card-img-wrap"><img src="yanmar.png" class="link-image" alt="Yanmar"></div>
-          <span class="card-label">Yanmar</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://environmentalshipindex.org/" target="_blank">
-          <div class="card-img-wrap"><img src="esi.png" class="link-image" alt="ESI"></div>
-          <span class="card-label">ESI</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://workplace.ozellar.com/" target="_blank">
-          <div class="card-img-wrap"><img src="Perf.png" class="link-image" alt="Ozellar Workplace"></div>
-          <span class="card-label">Ozellar Workplace</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://www2.j-eng.co.jp/web/site/WebAuth/Default.aspx?command=WebAuth&param=eyJXZWJBdXRoIjoiLi4vV2ViQXV0aC9EZWZhdWx0LmFzcHgiLCJSZXR1cm5VcmwiOiIvd2ViL3NpdGUvRFNJUy9mb3Jtcy9TZXJ2aWNlSW5mb1NlYXJjaC5hc3B4P2NvbW1hbmQ9TG9hZCJ9" target="_blank">
-          <div class="card-img-wrap"><img src="Engine.png" class="link-image" alt="Engine Maker"></div>
-          <span class="card-label">Engine Maker</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://sea.vision/dashboard/56e3a820-d8e7-11ef-b79d-a32a1a052d45" target="_blank">
-          <div class="card-img-wrap"><img src="Eyegauge.png" class="link-image" alt="Eye Gauge"></div>
-          <span class="card-label">Eye Gauge</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://mrv.emsa.europa.eu/#public/eumrv" target="_blank">
-          <div class="card-img-wrap"><img src="EMSA.png" class="link-image" alt="Thetis MRV"></div>
-          <span class="card-label">Thetis MRV</span>
-        </a>
-      </div>
+      <div class="link-card"><a href="https://vp.weathernews.com/public/gp/index.html#/login" target="_blank"><div class="card-img-wrap"><img src="WNI.png" class="link-image" alt="WNI"></div><span class="card-label">WNI</span></a></div>
+      <div class="link-card"><a href="https://otis.stratumfive.com/otis/login.html" target="_blank"><div class="card-img-wrap"><img src="Stratumfive.png" class="link-image" alt="Stratumfive"></div><span class="card-label">Stratumfive</span></a></div>
+      <div class="link-card"><a href="https://ye-shipsweb.yanmar.com/smartlink" target="_blank"><div class="card-img-wrap"><img src="yanmar.png" class="link-image" alt="Yanmar"></div><span class="card-label">Yanmar</span></a></div>
+      <div class="link-card"><a href="https://environmentalshipindex.org/" target="_blank"><div class="card-img-wrap"><img src="esi.png" class="link-image" alt="ESI"></div><span class="card-label">ESI</span></a></div>
+      <div class="link-card"><a href="https://workplace.ozellar.com/" target="_blank"><div class="card-img-wrap"><img src="Perf.png" class="link-image" alt="Ozellar Workplace"></div><span class="card-label">Ozellar Workplace</span></a></div>
+      <div class="link-card"><a href="https://www2.j-eng.co.jp/web/site/WebAuth/Default.aspx?command=WebAuth&param=eyJXZWJBdXRoIjoiLi4vV2ViQXV0aC9EZWZhdWx0LmFzcHgiLCJSZXR1cm5VcmwiOiIvd2ViL3NpdGUvRFNJUy9mb3Jtcy9TZXJ2aWNlSW5mb1NlYXJjaC5hc3B4P2NvbW1hbmQ9TG9hZCJ9" target="_blank"><div class="card-img-wrap"><img src="Engine.png" class="link-image" alt="Engine Maker"></div><span class="card-label">Engine Maker</span></a></div>
+      <div class="link-card"><a href="https://sea.vision/dashboard/56e3a820-d8e7-11ef-b79d-a32a1a052d45" target="_blank"><div class="card-img-wrap"><img src="Eyegauge.png" class="link-image" alt="Eye Gauge"></div><span class="card-label">Eye Gauge</span></a></div>
+      <div class="link-card"><a href="https://mrv.emsa.europa.eu/#public/eumrv" target="_blank"><div class="card-img-wrap"><img src="EMSA.png" class="link-image" alt="Thetis MRV"></div><span class="card-label">Thetis MRV</span></a></div>
     </div>
   </div>
 
-  <!-- ── SERVICES ── -->
+  <!-- SERVICES -->
   <div class="section" data-section>
     <div class="section-header">
       <div class="section-pill pill-purple">Services</div>
       <div class="section-line"></div>
     </div>
     <div class="links-grid">
-      <div class="link-card">
-        <a href="https://www.chartworld.com/signin/signin" target="_blank">
-          <div class="card-img-wrap"><img src="chartworld.png" class="link-image" alt="Chart World"></div>
-          <span class="card-label">Chart World</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://chartworld.my.site.com/Phoenix/s/login/?startURL=%2FPhoenix%2Fs%2F%3Ft%3D1769684787902" target="_blank">
-          <div class="card-img-wrap"><img src="chartworld.png" class="link-image" alt="Chart World Finance"></div>
-          <span class="card-label">Chart World Finance</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://www.lubeanalyst.shell.com/welcome.html" target="_blank">
-          <div class="card-img-wrap"><img src="shell.png" class="link-image" alt="Shell"></div>
-          <span class="card-label">Shell</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://fleetmanager.chartco.com/fmwapp/views/order.jsf?orderId=1785435" target="_blank">
-          <div class="card-img-wrap"><img src="OIP.png" class="link-image" alt="Fleet Manager"></div>
-          <span class="card-label">Fleet Manager</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://ooprodb2c.b2clogin.com/ooprodb2c.onmicrosoft.com/b2c_1a_signin/oauth2/v2.0/authorize?client_id=f928162b-618e-47b2-8bee-06fb6cfd3600&scope=https%3A%2F%2Fooprodb2c.onmicrosoft.com%2Ff928162b-618e-47b2-8bee-06fb6cfd3600%2FOneOceanApplication%20openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Fr4s.oneocean.com%2F&client-request-id=d2e7993d-185a-4e84-897c-d5839d621ab9&response_mode=fragment&response_type=code&x-client-SKU=msal.js.browser&x-client-VER=3.5.0&client_info=1&code_challenge=_UVDiG3aoiIU6_-TZ-MwEkaSUT2-Bsm8GrEK6lUfO0M&code_challenge_method=S256&nonce=8f9f5dd1-2a93-4491-af0e-7bf4255408db&state=eyJpZCI6IjkyMzIxNGFjLTUzYWUtNDdlYS05MTQ5LTljNmU1YWZmMGJhYyIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D" target="_blank">
-          <div class="card-img-wrap"><img src="OIP.png" class="link-image" alt="Reg4Ship"></div>
-          <span class="card-label">Reg4Ship</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://oneplace.wilhelmsen.com/ozm2025/home" target="_blank">
-          <div class="card-img-wrap"><img src="Waterproof.png" class="link-image" alt="Waterproof"></div>
-          <span class="card-label">Waterproof</span>
-        </a>
-      </div>
+      <div class="link-card"><a href="https://www.chartworld.com/signin/signin" target="_blank"><div class="card-img-wrap"><img src="chartworld.png" class="link-image" alt="Chart World"></div><span class="card-label">Chart World</span></a></div>
+      <div class="link-card"><a href="https://chartworld.my.site.com/Phoenix/s/login/?startURL=%2FPhoenix%2Fs%2F%3Ft%3D1769684787902" target="_blank"><div class="card-img-wrap"><img src="chartworld.png" class="link-image" alt="Chart World Finance"></div><span class="card-label">Chart World Finance</span></a></div>
+      <div class="link-card"><a href="https://www.lubeanalyst.shell.com/welcome.html" target="_blank"><div class="card-img-wrap"><img src="shell.png" class="link-image" alt="Shell"></div><span class="card-label">Shell</span></a></div>
+      <div class="link-card"><a href="https://fleetmanager.chartco.com/fmwapp/views/order.jsf?orderId=1785435" target="_blank"><div class="card-img-wrap"><img src="OIP.png" class="link-image" alt="Fleet Manager"></div><span class="card-label">Fleet Manager</span></a></div>
+      <div class="link-card"><a href="https://ooprodb2c.b2clogin.com/ooprodb2c.onmicrosoft.com/b2c_1a_signin/oauth2/v2.0/authorize?client_id=f928162b-618e-47b2-8bee-06fb6cfd3600&scope=https%3A%2F%2Fooprodb2c.onmicrosoft.com%2Ff928162b-618e-47b2-8bee-06fb6cfd3600%2FOneOceanApplication%20openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Fr4s.oneocean.com%2F&client-request-id=d2e7993d-185a-4e84-897c-d5839d621ab9&response_mode=fragment&response_type=code&x-client-SKU=msal.js.browser&x-client-VER=3.5.0&client_info=1&code_challenge=_UVDiG3aoiIU6_-TZ-MwEkaSUT2-Bsm8GrEK6lUfO0M&code_challenge_method=S256&nonce=8f9f5dd1-2a93-4491-af0e-7bf4255408db&state=eyJpZCI6IjkyMzIxNGFjLTUzYWUtNDdlYS05MTQ5LTljNmU1YWZmMGJhYyIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D" target="_blank"><div class="card-img-wrap"><img src="OIP.png" class="link-image" alt="Reg4Ship"></div><span class="card-label">Reg4Ship</span></a></div>
+      <div class="link-card"><a href="https://oneplace.wilhelmsen.com/ozm2025/home" target="_blank"><div class="card-img-wrap"><img src="Waterproof.png" class="link-image" alt="Waterproof"></div><span class="card-label">Waterproof</span></a></div>
     </div>
   </div>
 
-  <!-- ── ELOGBOOK & MISC ── -->
+  <!-- ELOGBOOK -->
   <div class="section" data-section>
     <div class="section-header">
       <div class="section-pill pill-teal">eLogbook &amp; Misc</div>
       <div class="section-line"></div>
     </div>
     <div class="links-grid">
-      <div class="link-card">
-        <a href="https://digital-logbooks.chersoft.com/" target="_blank">
-          <div class="card-img-wrap"><img src="Chersoft.png" class="link-image" alt="Chersoft"></div>
-          <span class="card-label">Chersoft</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://www.equasis.org/EquasisWeb/public/Registration?fs=ConditionsRegistration" target="_blank">
-          <div class="card-img-wrap"><img src="equ.png" class="link-image" alt="Equasis"></div>
-          <span class="card-label">Equasis</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://payroll.zoho.in" target="_blank">
-          <div class="card-img-wrap"><img src="zohoo.png" class="link-image" alt="Zoho Payroll"></div>
-          <span class="card-label">Zoho Payroll</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://browse.marinestoresguide.com/login" target="_blank">
-          <div class="card-img-wrap"><img src="impa.png" class="link-image" alt="IMPA"></div>
-          <span class="card-label">IMPA</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://marinecorp.riya.travel/" target="_blank">
-          <div class="card-img-wrap"><img src="riya.png" class="link-image" alt="Riya Travels"></div>
-          <span class="card-label">Riya Travels</span>
-        </a>
-      </div>
-      <div class="link-card">
-        <a href="https://ozellarmarine.sharepoint.com/:x:/r/sites/OZM-4MarineandQHSE/_layouts/15/Doc.aspx?sourcedoc=%7BAB54C0D1-599E-4A10-A9AD-EE6ABB71E037%7D&file=Superintendent_Travel_Tracker%201.xlsx&action=default&mobileredirect=true" target="_blank">
-          <div class="card-img-wrap"><img src="Travel.png" class="link-image" alt="Office Travels"></div>
-          <span class="card-label">Office Travels</span>
-        </a>
-      </div>
+      <div class="link-card"><a href="https://digital-logbooks.chersoft.com/" target="_blank"><div class="card-img-wrap"><img src="Chersoft.png" class="link-image" alt="Chersoft"></div><span class="card-label">Chersoft</span></a></div>
+      <div class="link-card"><a href="https://www.equasis.org/EquasisWeb/public/Registration?fs=ConditionsRegistration" target="_blank"><div class="card-img-wrap"><img src="equ.png" class="link-image" alt="Equasis"></div><span class="card-label">Equasis</span></a></div>
+      <div class="link-card"><a href="https://payroll.zoho.in" target="_blank"><div class="card-img-wrap"><img src="zohoo.png" class="link-image" alt="Zoho Payroll"></div><span class="card-label">Zoho Payroll</span></a></div>
+      <div class="link-card"><a href="https://browse.marinestoresguide.com/login" target="_blank"><div class="card-img-wrap"><img src="impa.png" class="link-image" alt="IMPA"></div><span class="card-label">IMPA</span></a></div>
+      <div class="link-card"><a href="https://marinecorp.riya.travel/" target="_blank"><div class="card-img-wrap"><img src="riya.png" class="link-image" alt="Riya Travels"></div><span class="card-label">Riya Travels</span></a></div>
+      <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:x:/r/sites/OZM-4MarineandQHSE/_layouts/15/Doc.aspx?sourcedoc=%7BAB54C0D1-599E-4A10-A9AD-EE6ABB71E037%7D&file=Superintendent_Travel_Tracker%201.xlsx&action=default&mobileredirect=true" target="_blank"><div class="card-img-wrap"><img src="Travel.png" class="link-image" alt="Office Travels"></div><span class="card-label">Office Travels</span></a></div>
     </div>
   </div>
 
@@ -432,39 +252,25 @@
 
 <script>
 function searchLinks(){
-  const q = document.getElementById('searchBar').value.toLowerCase();
-  document.querySelectorAll('[data-section]').forEach(sec => {
-    let any = false;
-    sec.querySelectorAll('.link-card').forEach(c => {
-      const match = c.innerText.toLowerCase().includes(q);
-      c.style.display = match ? '' : 'none';
-      if (match) any = true;
+  const q=document.getElementById('searchBar').value.toLowerCase();
+  document.querySelectorAll('[data-section]').forEach(sec=>{
+    let any=false;
+    sec.querySelectorAll('.link-card').forEach(c=>{
+      const m=c.innerText.toLowerCase().includes(q);
+      c.style.display=m?'':'none';
+      if(m)any=true;
     });
-    sec.style.display = any ? '' : 'none';
+    sec.style.display=any?'':'none';
   });
 }
-
-function openLock() {
-  const p = prompt('Enter secure password:');
-  if (p === 'Ozellar@123') {
-    window.open('https://ozellarmarine.sharepoint.com/:x:/s/OZM/IQCXnrp3hl13RoNIQtZL1XQAAc_dg_FyNKBEmZPMZGjjEHk?e=VW2cU9', '_blank');
-  } else if (p !== null) {
-    alert('Incorrect password.');
-  }
+function openLock(){
+  const p=prompt('Enter secure password:');
+  if(p==='Ozellar@123'){window.open('https://ozellarmarine.sharepoint.com/:x:/s/OZM/IQCXnrp3hl13RoNIQtZL1XQAAc_dg_FyNKBEmZPMZGjjEHk?e=VW2cU9','_blank');}
+  else if(p!==null){alert('Incorrect password.');}
 }
-
-function openAllLinks() {
-  const links = [
-    'https://smartpal.ozellar.com/Home/Landing',
-    'https://login.veracity.com/',
-    'https://vp.weathernews.com/public/gp/index.html#/login',
-    'https://ww2.eagle.org/en.html',
-    'https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgArafOC9H8mR72DDLD0A2x7Ab4zWigtgUDWrMg6mdXBm48?e=FSS1bt',
-    'https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8?e=P91qJD'
-  ];
-  links.forEach(u => window.open(u, '_blank'));
+function openAllLinks(){
+  ['https://smartpal.ozellar.com/Home/Landing','https://login.veracity.com/','https://vp.weathernews.com/public/gp/index.html#/login','https://ww2.eagle.org/en.html','https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgArafOC9H8mR72DDLD0A2x7Ab4zWigtgUDWrMg6mdXBm48?e=FSS1bt','https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8?e=P91qJD'].forEach(u=>window.open(u,'_blank'));
 }
 </script>
-
 </body>
 </html>
