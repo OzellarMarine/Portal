@@ -69,7 +69,7 @@
   .icon-btn.lock:hover{border-color:var(--cyan);background:rgba(0,212,255,0.18);transform:scale(1.08)}
 
   /* ─── MAIN ─── */
-  main{position:relative;z-index:1;max-width:100%;margin:0;padding:30px 32px 70px}
+  main{position:relative;z-index:1;max-width:100%;margin:0;padding:30px 32px 70px;min-height:calc(100vh - 64px - 52px)}
 
   /* ─── SECTION ─── */
   .section{margin-bottom:38px}
@@ -95,33 +95,35 @@
 
   /* ─── CARD ─── */
   .link-card{
-    background:var(--card-bg);
-    border:1.5px solid rgba(255,255,255,0.6);
+    background:rgba(255,255,255,0.12);
+    border:1.5px solid rgba(255,255,255,0.25);
     border-radius:14px;overflow:hidden;
-    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+    transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
     box-shadow:0 4px 16px rgba(0,0,0,0.25);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
   }
   .link-card:hover{
     transform:translateY(-6px) scale(1.02);
     box-shadow:0 16px 40px rgba(0,0,0,0.4),0 0 0 2px var(--green);
     border-color:var(--green);
-    background:var(--card-hover);
+    background:rgba(255,255,255,0.20);
   }
   .link-card a{display:block;text-decoration:none}
   .card-img-wrap{
     width:100%;height:90px;overflow:hidden;
-    background:#fff;
+    background:rgba(255,255,255,0.88);
     display:flex;align-items:center;justify-content:center;
   }
   .link-image{max-width:88%;max-height:78px;object-fit:contain;display:block;transition:.2s}
   .link-card:hover .link-image{transform:scale(1.06)}
   .card-label{
     font-size:10px;font-weight:700;letter-spacing:.9px;text-align:center;
-    padding:8px 6px;color:#111;text-transform:uppercase;
-    border-top:1px solid rgba(0,0,0,0.08);display:block;
-    background:#f8f9fa;
+    padding:8px 6px;color:rgba(255,255,255,0.90);text-transform:uppercase;
+    border-top:1px solid rgba(255,255,255,0.15);display:block;
+    background:transparent;
   }
-  .link-card:hover .card-label{background:#e8faf2;color:var(--green-dark)}
+  .link-card:hover .card-label{color:#00ff88}
 
   /* ─── FOOTER ─── */
   footer{
@@ -166,9 +168,9 @@
       <div class="section-line"></div>
     </div>
     <div class="links-grid">
-      <div class="link-card"><a href="https://smartpal.ozellar.com/Home/Landing" target="_blank"><div class="card-img-wrap"><img src="mariapps.png" class="link-image" alt="Mariapps"></div><span class="card-label">Mariapps</span></a></div>
-      <div class="link-card"><a href="https://mariapps.atlassian.net/servicedesk/customer/portal/477/user/login" target="_blank"><div class="card-img-wrap"><img src="mariapps.help.png" class="link-image" alt="Jira Portal"></div><span class="card-label">Jira Portal</span></a></div>
-      <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCRRICa1bxfSa9M46R4sDPdAbyabCDikFGKHIX2czTyruY?e=jk9zYn" target="_blank"><div class="card-img-wrap"><img src="mariapps.png" class="link-image" alt="User Manuals"></div><span class="card-label">User Manuals</span></a></div>
+      <div class="link-card"><a href="https://smartpal.ozellar.com/Home/Landing" target="_blank"><div class="card-img-wrap"><img src="mariappss.png" class="link-image" alt="Mariapps"></div><span class="card-label">Mariapps</span></a></div>
+      <div class="link-card"><a href="https://mariapps.atlassian.net/servicedesk/customer/portal/477/user/login" target="_blank"><div class="card-img-wrap"><img src="mariapps help.png" class="link-image" alt="Jira Portal"></div><span class="card-label">Jira Portal</span></a></div>
+      <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCRRICa1bxfSa9M46R4sDPdAbyabCDikFGKHIX2czTyruY?e=jk9zYn" target="_blank"><div class="card-img-wrap"><img src="mariappss.png" class="link-image" alt="User Manuals"></div><span class="card-label">User Manuals</span></a></div>
       <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgArafOC9H8mR72DDLD0A2x7Ab4zWigtgUDWrMg6mdXBm48" target="_blank"><div class="card-img-wrap"><img src="contingency.jpg" class="link-image" alt="Plans"></div><span class="card-label">Plans</span></a></div>
       <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM/IgCeA_zXLiV4RY0hL0ScSnILAQjz9gUMGIW2EnQar9XPyT8" target="_blank"><div class="card-img-wrap"><img src="criticaleqp.jpg" class="link-image" alt="Critical Equipment"></div><span class="card-label">Critical Equipment</span></a></div>
       <div class="link-card"><a href="https://ozellarmarine.sharepoint.com/:f:/s/OZM-4MarineandQHSE/IgDSsyVxFMokSKpIEv-nKLtsAeweNpFvkH5Fm7ubWAr21QA" target="_blank"><div class="card-img-wrap"><img src="ship particulars.png" class="link-image" alt="Ship Particulars"></div><span class="card-label">Ship Particulars</span></a></div>
